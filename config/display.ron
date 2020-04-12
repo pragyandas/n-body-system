@@ -1,0 +1,4 @@
+(
+    title: "N body system!",
+    dimensions: Some((1000, 1000)),
+)
