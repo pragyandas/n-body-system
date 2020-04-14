@@ -13,6 +13,8 @@ pub const NUM_BODIES: u32 = 1000;
 pub const MAX_MASS: f32 = 100.0;
 pub const ARENA_LENGTH: f32 = 1000.0;
 pub const PADDING: f32 = 10.0;
+// Actual value of G is 6.67e-11f64 but it's been adjusted to suit the system
+pub const G: f32 = 6.67e-3f32;
 
 pub struct SystemState;
 
@@ -75,8 +77,8 @@ fn initialise_bodies(world: &mut World, sprite_sheet: Handle<SpriteSheet>) {
   let mut rng = thread_rng();
 
   (1..=NUM_BODIES).into_iter().for_each(|_| {
-    let x = rng.gen_range(PADDING, ARENA_LENGTH - PADDING) as f32;
-    let y = rng.gen_range(PADDING, ARENA_LENGTH - PADDING) as f32;
+    let x = rng.gen_range((ARENA_LENGTH / 2.0) - 10.0, (ARENA_LENGTH / 2.0) + 10.0) as f32;
+    let y = rng.gen_range((ARENA_LENGTH / 2.0) - 10.0, (ARENA_LENGTH / 2.0) + 10.0) as f32;
     let mass = rng.gen_range(1.0, MAX_MASS) as f32;
 
     let mut local_tranform = Transform::default();

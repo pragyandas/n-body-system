@@ -6,7 +6,7 @@ use crate::vector::Vector;
 use coordinate::Coordinate;
 use std::time::Instant;
 
-const G: f32 = 6.67;
+use crate::system::G;
 
 #[derive(Debug, Clone, Copy)]
 pub struct Body {
