@@ -16,7 +16,7 @@ pub struct QuadTree {
 
 impl QuadTree {
   pub fn new(length: f32) -> Self {
-    let quadrant = Quadrant::new(0.0, length, length);
+    let quadrant = Quadrant::new(0.0, 0.0, length);
     QuadTree {
       root: Box::new(Node::new(quadrant))
     }

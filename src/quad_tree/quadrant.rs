@@ -34,12 +34,12 @@ impl Quadrant {
     (
       Quadrant {
         x: self.x + child_length,
-        y: self.y - child_length,
+        y: self.y + child_length,
         length: child_length,
       },
       Quadrant {
         x: self.x,
-        y: self.y - child_length,
+        y: self.y + child_length,
         length: child_length,
       },
       Quadrant {
@@ -60,8 +60,8 @@ impl Quadrant {
     let y = coordinate.get_y();
     let x_start = self.x;
     let x_end = self.x + self.length;
-    let y_start = self.y - self.length;
-    let y_end = self.y;
+    let y_start = self.y;
+    let y_end = self.y + self.length;
     let x_contains = x >= x_start && x <= x_end;
     let y_contains = y >= y_start && y <= y_end;
 

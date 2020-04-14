@@ -102,7 +102,7 @@ impl Node {
           return Vector::new(0.0, 0.0);
         }
 
-        let distance = self_body.distance_between(body);
+        let distance = self_body.get_distance_between(body);
         let side_length = self.quadrant.get_length();
         if side_length / distance < theta {
           return self_body.calculate_force_on(body);

@@ -17,12 +17,25 @@ impl Coordinate {
     self.y
   }
 
-  pub fn distance_between (&self, coordinate: Self) -> f32 {
+  pub fn get_distance_between (&self, coordinate: Self) -> f32 {
     ((self.x - coordinate.x).powi(2) + (self.y - coordinate.y).powi(2)).sqrt()
   }
 
   // w.r.t x-axis
-  pub fn angle_between (&self, coordinate: Self) -> f32 {
-    ((-coordinate.y - (-self.y)) / (coordinate.x - self.x)).atan()
+  pub fn get_angle_between (&self, coordinate: Self) -> f32 {
+    ((self.y - coordinate.y) / (self.x - coordinate.x)).atan()
+  }
+
+  pub fn get_direction(&self, coordinate: Self) -> (f32, f32) {
+    let (mut x, mut y) = (1.0, 1.0);
+    if self.x - coordinate.x < 0.0 {
+      x = -1.0;
+    }
+
+    if self.y - coordinate.y < 0.0 {
+      y = -1.0;
+    }
+
+    (x, y)
   }
 }

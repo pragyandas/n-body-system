@@ -48,16 +48,17 @@ impl Body {
     Body::new(total_mass, Coordinate::new(x, y))
   }
 
-  pub fn distance_between(&self, body: &Body) -> f32 {
-    self.coordinate.distance_between(body.coordinate)
+  pub fn get_distance_between(&self, body: &Body) -> f32 {
+    self.coordinate.get_distance_between(body.coordinate)
   }
 
   pub fn calculate_force_on(&self, body: &Body) -> Vector {
-    let distance = self.distance_between(body);
-    let angle = self.coordinate.angle_between(body.coordinate);
+    let distance = self.get_distance_between(body);
+    let angle = self.coordinate.get_angle_between(body.coordinate);
     let magnitude = (G * self.mass * body.mass) / distance.powi(2);
+    let (x_direction, y_direction) = self.coordinate.get_direction(body.coordinate);
 
-    Vector::new_with(magnitude, angle)
+    Vector::new_with(magnitude, angle, Vector::new(x_direction, y_direction))
   }
 
   pub fn update_velocity(&mut self, acceleration: Vector, time: f32) {

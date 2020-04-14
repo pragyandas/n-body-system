@@ -11,9 +11,9 @@ impl Vector {
     Vector {x, y}
   }
 
-  pub fn new_with(magnitude: f32, angle: f32) -> Self {
-    let x = magnitude * angle.cos();
-    let y = magnitude * angle.sin();
+  pub fn new_with(magnitude: f32, angle: f32, direction: Self) -> Self {
+    let x = magnitude * angle.cos() * direction.x;
+    let y = magnitude * angle.sin() * direction.y;
 
     Vector {x, y}
   }
