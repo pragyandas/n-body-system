@@ -11,6 +11,3 @@ To know more about how the algorithm works, check out this awesome [article](htt
 This project uses [Amethyst Game Engine](https://amethyst.rs/) which supports both `Vulkan` and `Metal` rendering backends. This project uses `metal`, but if you are on Windows, update `cargo.toml` to set the features entry in the amethyst dependency table to `vulkan`.
 
 *Note: This project needs some more love and care to reach completion. That said, bodies do experience force and fly around!*
-
-# Run tests
-- `cargo test`
